@@ -62,5 +62,5 @@ fetch('./data.json')
   .then((response) => (response.json()))
   .then((data) => {
     cards = data.map((category) => (new Card(category)));
-    document.body.append(...cards.map((card) => card.element));
+    document.querySelector('.main').append(...cards.map((card) => card.element));
   });

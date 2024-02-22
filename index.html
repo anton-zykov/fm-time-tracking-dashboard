@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./styles/main.css"> 
@@ -10,6 +10,30 @@
   <title>Time tracking dashboard</title>
 </head>
 <body>
+  <main class="main">
+    <div class="profile">
+      <div class="profile__about-user">
+        <div class="profile__avatar-container">
+          <img src="./images/image-jeremy.png" class="profile__avatar" alt="User's avatar">
+        </div>
+        <div class="profile__username-container">
+          <p class="profile__report-for">Report for</p>
+          <p class="profile__username">Jeremy Robson</p>
+        </div>
+      </div>
+      <div class="profile__timelines-container">
+        <input type="radio" name="timeline" value="day" id="timeline-day" checked
+          class="profile__timeline-controller" />
+        <label for="timeline-day" class="profile__timeline-switcher">Daily</label>
+        <input type="radio" name="timeline" value="week" id="timeline-week"
+          class="profile__timeline-controller" />
+        <label for="timeline-week" class="profile__timeline-switcher">Weekly</label>
+        <input type="radio" name="timeline" value="month" id="timeline-month"
+          class="profile__timeline-controller" />
+        <label for="timeline-month" class="profile__timeline-switcher">Monthly</label>
+      </div>
+    </div>
+  </main>
   <script type="module" src="./index.js"></script>
 </body>
 </html>

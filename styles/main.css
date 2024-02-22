@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
 @import url('./components/card/card.css');
+@import url('./components/profile/profile.css');
 
 :root {
   --white: hsl(0, 0%, 100%);
-  --very-dark-blue: hsl(226, 43%, 10%);
-  --dark-blue: hsl(235, 46%, 20%);
+  --very-dark-blue: hsl(226, 41%, 10%);
+  --dark-blue: hsl(236, 45%, 20%);
   --desaturated-blue: hsl(235, 45%, 61%);
   --pale-blue: hsl(236, 100%, 87%);
 
@@ -20,4 +21,18 @@
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
   font-size: 18px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  min-width: 20em;
+  background-color: var(--very-dark-blue);
+  padding: 4.5em 1.3em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3em;
 }
