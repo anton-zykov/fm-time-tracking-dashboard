@@ -4,6 +4,15 @@ const timeframeAdjectives = {
   'Month': 'Monthly',
 };
 
+const backgroundColorVariables = {
+  'Work': '--light-red-work',
+  'Play': '--soft-blue-play',
+  'Study': '--light-red-study',
+  'Exercise': '--lime-green-exercise',
+  'Social': '--violet-social',
+  'Self Care': '--soft-orange-self-care',
+};
+
 let currentTimeframe = 'Month';
 
 class Card {
@@ -21,7 +30,7 @@ class Card {
 
   createTemplate () {
     return `
-      <div class="card">
+      <div class="card" style="background-color: var(${backgroundColorVariables[this.title]});">
         <img class="card__icon" src="./images/icon-${this.title.toLowerCase().replace(' ', '-')}.svg" alt="">
         <div class="card__content">
           <p class="card__title">${this.title}</p>
