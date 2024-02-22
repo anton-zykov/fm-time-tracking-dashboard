@@ -13,8 +13,6 @@ const backgroundColorVariables = {
   'Self Care': '--soft-orange-self-care',
 };
 
-let currentTimeframe = 'Month';
-
 class Card {
   constructor ({ title, timeframes }) {
     this.title = title;
@@ -25,7 +23,7 @@ class Card {
       hours: this.element.querySelector('.card__hours'),
       previous: this.element.querySelector('.card__previous'),
     };
-    this.updateHours();
+    this.updateHours('Day');
   }
 
   createTemplate () {
@@ -50,17 +48,29 @@ class Card {
     return container.firstElementChild;
   }
 
-  updateHours () {
-    this.subElements.hours.textContent = this.timeframes[timeframeAdjectives[currentTimeframe].toLowerCase()].current + 'hrs';
+  updateHours (timeframe) {
+    this.subElements.hours.textContent = this.timeframes[timeframeAdjectives[timeframe].toLowerCase()].current + 'hrs';
     this.subElements.previous.textContent = 
-      'Last ' + currentTimeframe + ' - ' + this.timeframes[timeframeAdjectives[currentTimeframe].toLowerCase()].previous + 'hrs';
+      'Last ' + timeframe + ' - ' + this.timeframes[timeframeAdjectives[timeframe].toLowerCase()].previous + 'hrs';
   }
 }
 
 let cards = [];
+
+const activateSwitchers = () => {
+  const handleSwitcherClick = (event) => {
+    if (event.target.nodeName !== 'INPUT') return;
+    const timeframe = event.target.id.split('-')[1];
+    cards.forEach((card) => card.updateHours(timeframe[0].toUpperCase() + timeframe.slice(1)));
+  };
+
+  document.querySelector('.profile__timelines-container').addEventListener('click', handleSwitcherClick);
+};
+
 fetch('./data.json')
   .then((response) => (response.json()))
   .then((data) => {
     cards = data.map((category) => (new Card(category)));
     document.querySelector('.main').append(...cards.map((card) => card.element));
-  });
+  })
+  .then(activateSwitchers);
