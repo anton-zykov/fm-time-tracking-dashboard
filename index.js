@@ -32,7 +32,7 @@ class Card {
         <img class="card__icon" src="./images/icon-${this.title.toLowerCase().replace(' ', '-')}.svg" alt="">
         <div class="card__content">
           <p class="card__title">${this.title}</p>
-          <a class="card__more" href="/" aria-label="More on ${this.title}">
+          <a class="card__more" href="." aria-label="More on ${this.title}">
             <img src="./images/icon-ellipsis.svg" alt="">
           </a>
           <span class="card__hours"></span>

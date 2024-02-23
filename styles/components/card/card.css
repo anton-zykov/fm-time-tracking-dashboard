@@ -42,3 +42,15 @@
   color: var(--pale-blue);
   font-size: 0.8em;
 }
+
+@media (min-width: 850px) {
+  .card__hours {
+    margin-top: 0.3em;
+    grid-column: 1 / 3;
+    font-size: 3em;
+  }
+
+  .card__previous {
+    justify-self: auto;
+  }
+}

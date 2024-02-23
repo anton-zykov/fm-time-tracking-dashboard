@@ -26,13 +26,29 @@
 body {
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--very-dark-blue);
 }
 
 .main {
   min-width: 20em;
-  background-color: var(--very-dark-blue);
   padding: 4.5em 1.3em;
   display: flex;
   flex-direction: column;
   gap: 1.3em;
+}
+
+@media (min-width: 850px) {
+  body {
+    height: 100vh;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.3em;
+  }
 }
